@@ -36,4 +36,4 @@ It's opinionated so you get both .hbs and .handlebars extensions out of the box
 
 ## What should I look out for?
 
-It requires the directory name be templates (as shown in the above example)
+It requires the destination directory name be templates (as shown in the above example)
