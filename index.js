@@ -1,20 +1,24 @@
-var jsStringEscape = require('js-string-escape')
-var Filter = require('broccoli-filter')
-var compiler = require('ember-template-compiler')
+var path = require('path');
+var Filter = require('broccoli-filter');
+var jsStringEscape = require('js-string-escape');
+var compiler = require('ember-template-compiler');
 
 module.exports = TemplateCompiler
-TemplateCompiler.prototype = Object.create(Filter.prototype)
-TemplateCompiler.prototype.constructor = TemplateCompiler
+TemplateCompiler.prototype = Object.create(Filter.prototype);
+TemplateCompiler.prototype.constructor = TemplateCompiler;
 function TemplateCompiler (inputTree, options) {
-  if (!(this instanceof TemplateCompiler)) return new TemplateCompiler(inputTree, options)
-  this.inputTree = inputTree
-  this.extensions = options.extensions
+    if (!(this instanceof TemplateCompiler)) { 
+        return new TemplateCompiler(inputTree, options);
+    }
+    this.inputTree = inputTree;
 }
 
-TemplateCompiler.prototype.targetExtension = 'js'
+TemplateCompiler.prototype.extensions = ['hbs', 'handlebars'];
+TemplateCompiler.prototype.targetExtension = 'js';
 
-TemplateCompiler.prototype.processString = function (string) {
-  var incoming = jsStringEscape(string);
-  var input = compiler.precompile(incoming);
-  return "Ember.TEMPLATES['application'] = Ember.Handlebars.template(" + input + ");\n";
+TemplateCompiler.prototype.processString = function (string, relativePath) {
+  var extensionRegex = /.handlebars|.hbs/gi;
+  var filename = relativePath.toString().split('templates' + path.sep).reverse()[0].replace(extensionRegex, '');
+  var input = compiler.precompile(string);
+  return "Ember.TEMPLATES['" + filename + "'] = Ember.Handlebars.template(" + input + ");\n";
 }

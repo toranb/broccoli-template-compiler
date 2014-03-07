@@ -5,7 +5,7 @@
   },
   "name": "broccoli-template-compiler",
   "description": "ember.js precompiler for projects that use broccoli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/toranb/broccoli-template-compiler"
