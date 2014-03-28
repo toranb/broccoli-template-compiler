@@ -6,6 +6,9 @@
   "name": "broccoli-template-compiler",
   "description": "ember.js precompiler for projects that use broccoli",
   "version": "1.4.0",
+  "scripts": {
+    "test": "mocha test/**/*.spec.js --reporter tap"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/toranb/broccoli-template-compiler"
@@ -24,6 +27,8 @@
     "broccoli-filter": "^0.1.0",
     "ember-template-compiler": "1.4.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha": "^1.18.2"
+  },
   "optionalDependencies": {}
 }
