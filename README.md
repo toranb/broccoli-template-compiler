@@ -1,5 +1,7 @@
 # broccoli-template-compiler
 
+[![Build Status](https://secure.travis-ci.org/toranb/broccoli-template-compiler.png?branch=master)](https://travis-ci.org/toranb/broccoli-template-compiler)
+
 An opinionated filter for Broccoli that compiles handlebars templates for ember.js
 
 ## Installation
