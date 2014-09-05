@@ -24,7 +24,7 @@
   ],
   "dependencies": {
     "js-string-escape": "^1.0.0",
-    "broccoli-filter": "^0.1.0",
+    "broccoli-filter": "^0.1.6",
     "ember-template-compiler": "1.4.0"
   },
   "devDependencies": {
